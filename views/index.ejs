@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my app</title>
+</head>
+<body>
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="quote" name="quote">
+        <button type="submit">Submit</button>
+    </form> <br>
+    <form action="/getData" method="GET">
+        <button type="submit">Show data</button>
+    </form>
+    <h2>Quotes</h2>
+    <ul class="quotes">
+        <% for(var i = 0; i < quotes.length; i++) {%>
+            <li class="quote">
+              <!-- Output name from the iterated quote object -->
+              <span><%= quotes[i].name %></span>:
+              <!-- Output quote from the iterated quote object -->
+              <span><%= quotes[i].quote %></span>
+            </li>
+          <% } %>
+    </ul>
+    <div>
+        <h2>Ram invades!</h2>
+        <p>
+          Replace first ram's quote with a quote written by sam
+        </p>
+        <button id="update-button">Replace Ram's quote</button>
+    </div>
+    <div>
+        <h2>Remove Ram's quote</h2>
+        <p>
+          Delete one Ram's quote. Does nothing if there are no more 
+          Ram's quote
+        </p>
+        <button id="delete-button">Delete Ram's quote</button>
+        <div id="message"></div>
+    </div>
+<script src="/main.js"></script>
+</body>
+</html>
